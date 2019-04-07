@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body class="d-flex flex-column">
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container main mb-5"  id="page-content">
+
+		<h2 th:text="${titulo}"></h2>
+
+		<div class="row d-flex my-3 mr-2">
+
+			<a type="button" th:href="@{/form}" class="btn btn-sm btn-primary ml-auto"><i class="fas fa-plus"></i> Crear
+				Cliente</a>
+
+		</div>
+
+		<table class="table table-sm table-bordered table-hover">
+
+			<thead class="text-white bg-primary">
+
+				<tr class="text-center">
+
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Email</th>
+					<th>Fecha</th>
+					<th>Editar</th>
+					<th>Eliminar</th>
+
+				</tr>
+
+			</thead>
+
+			<tbody>
+
+				<tr th:each="cliente: ${clientes}">
+
+					<td class="text-center"> <a class="btn btn-outline-primary btn-sm" th:text="${cliente.id}" th:href="@{/ver/} + ${cliente.id}"></a> </td>
+					<td th:text="${cliente.nombre}"></td>
+					<td th:text="${cliente.apellido}"></td>
+					<td th:text="${cliente.email}"></td>
+					<td th:text="${cliente.createAt}"></td>
+					<td class="text-center"> <a class="btn btn-info btn-sm" th:href="@{/form/} + ${cliente.id}"><i class="far fa-edit"></i></a> </td>
+					<td class="text-center"> <a class="btn btn-danger btn-sm" th:href="@{/eliminar/} + ${cliente.id}" ><i class="far fa-trash-alt"></i></a> </td>
+
+				</tr>
+
+			</tbody>
+
+		</table>
+		
+		<div class="row mt-5 justify-content-center">
+		
+			<nav th:replace="paginator-nav :: paginator"></nav>
+		
+		</div>
+
+	</div>
+	
+	<footer th:replace="layout/layout :: footer"></footer>
+	
+</body>
+</html>

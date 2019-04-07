@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body class="d-flex flex-column">
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container main mb-5"  id="page-content">
+
+		<h2> Detalle cliente: <span th:text="${cliente.nombre}"></span></h2>
+        <hr class="mb-5"/>
+
+        <!-- DETALLE -->
+        <div class="row d-flex justify-content-center">
+            <div class="d-flex justify-content-center col-12 col-md-2">
+                <img th:if="@{cliente.foto != ' '}" height="150" width="150" class="mb-4" th:src="@{'/uploads/' + ${cliente.foto}}" th:alt="${cliente.foto}" />
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="card border-light mb-3">
+                    <!-- <div class="card-header">Bienvenido</div> -->
+                    <div class="card-body">
+                       <p>Nombre : <span th:text="${cliente.nombre}"></span></p>
+                       <p>Apellido : <span th:text="${cliente.apellido}"></span></p>
+                       <p>Email: <span th:text="${cliente.email}"></span></p>
+                       <p>Fecha Creacion: <span th:text="${cliente.createAt}"></span></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- FIN DETALLE -->
+    </div>
+	
+	<footer th:replace="layout/layout :: footer"></footer>
+	
+</body>
+</html>

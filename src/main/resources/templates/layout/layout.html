@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="UTF-8" />
+<title th:text="${titulo}">Insert title here</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap-lux.css}" />
+	<link rel="stylesheet" th:href="@{/css/main.css}" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+</head>
+<body class="d-flex flex-column">
+
+	<header th:fragment="header">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
+			<div class="container">
+			
+				<a class="navbar-brand logo" th:href="@{/}">SpringBoot-Data-JPA</a>
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarNav" aria-controls="navbarNav"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<div class="collapse navbar-collapse" id="navbarNav">
+				
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/listar}">Clientes</a></li>
+					</ul>
+
+				</div>
+				
+			</div>
+		</nav>
+		
+		<div class="container">
+			<div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
+			<div class="alert alert-danger" th:if="${error != null}" th:text="${error}"></div>
+			<div class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></div>
+			<div class="alert alert-info" th:if="${info != null}" th:text="${info}"></div>
+		</div>		
+	</header>
+
+<!-- 	<div class="container main"></div> -->
+	
+	
+	<!-- FOOTER -->
+    <footer th:fragment="footer" id="sticky-footer" class="bg-primary text-white-50">
+        <div class="container">
+            <div class="d-flex justify-content-center align-items-center">
+                <span>&copy; José Gabriel Gutiérrez Ramírez</span>
+                <a href="https://github.com/Gabo16" target="blank" class="text-white-50 ml-auto"><i
+                        class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- FIN FOOTER -->
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/js/bootstrap.js"></script>
+
+</body>
+</html>
